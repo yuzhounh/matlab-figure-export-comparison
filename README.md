@@ -1,11 +1,21 @@
 # MATLAB 图形导出比较
 
+用于比较 MATLAB 图形导出路径、文件格式及中英文字体渲染的实验脚本。
+
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-D4AF37?style=flat-square)](LICENSE)
+
 ## 特性
-- 全面比较 6 种常用的 MATLAB 图形导出方法：exportgraphics、print、saveas、export_fig、fig2svg、savefig
+- 提供六个输出分组：exportgraphics、print、saveas、export_fig、标记为 fig2svg 的分组，以及 savefig；当前 fig2svg 分组实际调用的仍是 export_fig
 - 支持多种文件格式，包括 bmp、emf、eps、fig、gif、jpg、pdf、png、svg、tif
 - 评估字体渲染，特别关注中文字符的处理（包括宋体和微软雅黑）
 - 提供易用的脚本，用于测试各种导出场景
 - 详细比较不同方法的优缺点和适用情况
+
+## 运行前准备
+
+在 MATLAB 中将工作目录设为仓库根目录，保留随仓库附带的 `export_fig-master/` 和 `fig2svg-master/`。`export_graphics.m` 的工具路径含 Windows 反斜杠；其他系统运行前应先核对并调整路径。
+
+中文示例需要对应字体可用。不同 MATLAB 版本、操作系统及导出后端可能支持不同格式；下方字体表现保留自原实验记录，不能视为所有环境中的统一结果。
 
 ## 使用方法
 
@@ -19,7 +29,7 @@
 
 5. 每个脚本都会使用不同的导出方法和格式生成多个图像文件，便于全面比较。根据比较结果，选择最符合您需求的导出方法和格式。可以直接使用本工具导出的图像，或者使用 `export_graphics.m` 中相应的命令来导出您的最终图像。得到的图像适合于学术论文作图。
 
-## 支持的格式和特性
+## 原实验记录的格式与表现
 
 ### exportgraphics
 - 支持：emf、eps、gif、jpg、pdf、png、tif
@@ -41,9 +51,9 @@
 - 支持：bmp、emf、fig、gif、jpg、png、svg、tif
 - svg 为灰色背景
 
-### fig2svg
-- 支持：svg
-- svg 为灰色背景
+### 标记为 fig2svg 的输出组
+- 当前实现调用的是 `export_fig(figure_handle, figure_svg)`，尚未独立调用 fig2svg。
+- 原记录中的 SVG 灰色背景是该输出组的观察，不能据此判断 fig2svg 的效果。
 
 ### savefig
 - 支持：fig
@@ -60,6 +70,13 @@
      <img src="./GhostscriptWarning.png" alt="Ghostscript Warning">
    </p>
 
+## 项目结构
+
+- [main.m](main.m)、[main_SimSun.m](main_SimSun.m)、[main_MSYH.m](main_MSYH.m)：三种字体/语言示例。
+- [export_graphics.m](export_graphics.m)：六个输出分组。
+- [export_fig-master/](export_fig-master/) 和 [fig2svg-master/](fig2svg-master/)：第三方工具。
+- `saved_figures/`：生成的输出。
+
 ## 致谢
 
 感谢以下仓库：
@@ -68,7 +85,7 @@
 
 ## 许可证
 
-本项目采用 GNU 通用公共许可证 v3.0 (GPL-3.0) 授权。
+根目录提供 [GNU 通用公共许可证 v3.0 (GPL-3.0)](LICENSE)。第三方工具保留其各自目录内的许可和作者说明。
 
 ## 联系方式
 
