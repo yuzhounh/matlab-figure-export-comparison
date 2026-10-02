@@ -1,10 +1,17 @@
-# MATLAB 图形导出比较
+# MATLAB Figure Export Comparison
 
-用于比较 MATLAB 图形导出路径、文件格式及中英文字体渲染的实验脚本。
+> 比较 MATLAB 图形导出路径、文件格式与中英文字体表现。
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-D4AF37?style=flat-square)](LICENSE)
+<p>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-f59e0b?style=flat" alt="License: GPL-3.0"></a>
+  <img src="https://img.shields.io/badge/MATLAB-Research-e16737?style=flat" alt="MATLAB: Research">
+</p>
 
-## 特性
+<p>
+  <a href="#使用方法">快速开始</a> · <a href="LICENSE">开源协议</a>
+</p>
+
+## 功能特点
 - 提供六个输出分组：exportgraphics、print、saveas、export_fig、标记为 fig2svg 的分组，以及 savefig；当前 fig2svg 分组实际调用的仍是 export_fig
 - 支持多种文件格式，包括 bmp、emf、eps、fig、gif、jpg、pdf、png、svg、tif
 - 评估字体渲染，特别关注中文字符的处理（包括宋体和微软雅黑）
@@ -83,7 +90,7 @@
 - [export_fig](https://github.com/altmany/export_fig)
 - [fig2svg](https://github.com/kupiqu/fig2svg)
 
-## 许可证
+## 开源协议
 
 根目录提供 [GNU 通用公共许可证 v3.0 (GPL-3.0)](LICENSE)。第三方工具保留其各自目录内的许可和作者说明。
 
